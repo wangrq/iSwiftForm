@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="195" id="1Ti-eh-2np" customClass="FormInputCell" customModule="TestProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="641" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ti-eh-2np" id="WC6-1O-TRX">
+                <rect key="frame" x="0.0" y="0.0" width="641" height="194.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gw-wK-dxL">
+                        <rect key="frame" x="20" y="87" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sN9-1x-Nnr" customClass="AutoCompleteTextField" customModule="TestProject" customModuleProvider="target">
+                        <rect key="frame" x="70" y="0.0" width="535" height="194.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="editBegin:" destination="1Ti-eh-2np" eventType="editingDidBegin" id="eBf-j6-BJ6"/>
+                            <action selector="editEnd:" destination="1Ti-eh-2np" eventType="editingDidEnd" id="kCz-vG-tFc"/>
+                            <action selector="onEditChange:" destination="1Ti-eh-2np" eventType="editingChanged" id="R0D-qP-vAY"/>
+                            <action selector="onPrimaryButtonClick:" destination="1Ti-eh-2np" eventType="primaryActionTriggered" id="RDz-9L-qDC"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sN9-1x-Nnr" firstAttribute="top" secondItem="WC6-1O-TRX" secondAttribute="top" id="0ua-1W-3eq"/>
+                    <constraint firstItem="sN9-1x-Nnr" firstAttribute="trailing" secondItem="WC6-1O-TRX" secondAttribute="trailingMargin" constant="-16" id="Ony-vc-3I3"/>
+                    <constraint firstItem="sN9-1x-Nnr" firstAttribute="leading" secondItem="0gw-wK-dxL" secondAttribute="trailing" constant="16" id="RJA-O1-MkX"/>
+                    <constraint firstItem="0gw-wK-dxL" firstAttribute="leading" secondItem="WC6-1O-TRX" secondAttribute="leadingMargin" id="cR4-Gp-rxz"/>
+                    <constraint firstItem="0gw-wK-dxL" firstAttribute="centerY" secondItem="WC6-1O-TRX" secondAttribute="centerY" id="fEV-3U-5HN"/>
+                    <constraint firstItem="sN9-1x-Nnr" firstAttribute="centerY" secondItem="0gw-wK-dxL" secondAttribute="centerY" id="mg0-xO-Vv2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="inputField" destination="sN9-1x-Nnr" id="9ng-SE-Czv"/>
+                <outlet property="titleLabel" destination="0gw-wK-dxL" id="pem-Ze-uK9"/>
+            </connections>
+            <point key="canvasLocation" x="114.5" y="17.5"/>
+        </tableViewCell>
+    </objects>
+</document>

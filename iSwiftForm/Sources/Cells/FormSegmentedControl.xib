@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="291" id="S53-c5-KBg" customClass="FormSegmentedControl" customModule="TestProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="753" height="291"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S53-c5-KBg" id="o32-8j-jsA">
+                <rect key="frame" x="0.0" y="0.0" width="753" height="290.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLz-sN-Hml">
+                        <rect key="frame" x="20" y="135" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SBo-As-7PS">
+                        <rect key="frame" x="573" y="130.5" width="160" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="VOm-E9-cyb"/>
+                            <constraint firstAttribute="height" constant="30" id="qnv-cJ-nBT"/>
+                        </constraints>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SBo-As-7PS" firstAttribute="trailing" secondItem="o32-8j-jsA" secondAttribute="trailingMargin" id="2xC-Q6-gXZ"/>
+                    <constraint firstItem="RLz-sN-Hml" firstAttribute="centerY" secondItem="o32-8j-jsA" secondAttribute="centerY" id="FAh-4X-6Oa"/>
+                    <constraint firstItem="RLz-sN-Hml" firstAttribute="leading" secondItem="o32-8j-jsA" secondAttribute="leadingMargin" id="kG5-om-sJN"/>
+                    <constraint firstItem="SBo-As-7PS" firstAttribute="centerY" secondItem="RLz-sN-Hml" secondAttribute="centerY" id="uix-rd-9K7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="chooseControl" destination="SBo-As-7PS" id="NTL-kU-yku"/>
+                <outlet property="titleLabel" destination="RLz-sN-Hml" id="iNk-c4-lOZ"/>
+            </connections>
+            <point key="canvasLocation" x="89" y="92"/>
+        </tableViewCell>
+    </objects>
+</document>

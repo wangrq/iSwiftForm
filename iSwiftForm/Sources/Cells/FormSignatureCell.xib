@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="353" id="t7c-zL-GQX" customClass="FormSignatureCell" customModule="TestProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="734" height="353"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t7c-zL-GQX" id="0UJ-6G-S1Q">
+                <rect key="frame" x="0.0" y="0.0" width="734" height="352.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obq-vH-jIS">
+                        <rect key="frame" x="20" y="40" width="694" height="240"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sign_bg" translatesAutoresizingMaskIntoConstraints="NO" id="XtI-1i-WLj">
+                                <rect key="frame" x="163" y="49" width="392" height="141"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oip-pf-oQq" customClass="SignatureView" customModule="TestProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="694" height="240"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XtI-1i-WLj" firstAttribute="centerY" secondItem="Obq-vH-jIS" secondAttribute="centerY" id="6DZ-qC-sqn"/>
+                            <constraint firstItem="Oip-pf-oQq" firstAttribute="top" secondItem="Obq-vH-jIS" secondAttribute="top" id="8rl-2j-HgR"/>
+                            <constraint firstItem="Oip-pf-oQq" firstAttribute="leading" secondItem="Obq-vH-jIS" secondAttribute="leading" id="Y9U-Fw-mfN"/>
+                            <constraint firstItem="XtI-1i-WLj" firstAttribute="height" secondItem="Obq-vH-jIS" secondAttribute="height" id="YOU-Ql-4Hs"/>
+                            <constraint firstItem="XtI-1i-WLj" firstAttribute="width" secondItem="Obq-vH-jIS" secondAttribute="width" id="alG-SW-gtS"/>
+                            <constraint firstItem="XtI-1i-WLj" firstAttribute="centerX" secondItem="Obq-vH-jIS" secondAttribute="centerX" id="dPg-Pk-pdG"/>
+                            <constraint firstItem="Oip-pf-oQq" firstAttribute="height" secondItem="Obq-vH-jIS" secondAttribute="height" id="opv-w4-764"/>
+                            <constraint firstItem="Oip-pf-oQq" firstAttribute="width" secondItem="Obq-vH-jIS" secondAttribute="width" id="umw-Iz-agJ"/>
+                            <constraint firstAttribute="height" constant="240" id="yeB-Br-Har"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-1P-xC3">
+                        <rect key="frame" x="623" y="296" width="91" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="XM8-9K-07A"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="rXk-Du-YXs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" title="Save" backgroundImage="btn_primary">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="btn_focused"/>
+                        <connections>
+                            <action selector="onLockButtonClicked:" destination="t7c-zL-GQX" eventType="touchUpInside" id="PKM-Ka-31m"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-6e-PQc">
+                        <rect key="frame" x="549" y="296" width="50" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="GiA-uK-rSJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" title="Clear" backgroundImage="btn_outline">
+                            <color key="titleColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="disabled">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" red="0.0" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="btn_focused">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onClearButtonClicked:" destination="t7c-zL-GQX" eventType="touchUpInside" id="RmX-la-DWy"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signature:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yL-68-Col">
+                        <rect key="frame" x="20" y="11" width="78" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vh6-1P-xC3" firstAttribute="trailing" secondItem="0UJ-6G-S1Q" secondAttribute="trailingMargin" id="4oO-8A-7Dz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vh6-1P-xC3" secondAttribute="bottom" constant="8" id="CcR-cB-e3M"/>
+                    <constraint firstItem="Obq-vH-jIS" firstAttribute="top" secondItem="2yL-68-Col" secondAttribute="bottom" constant="8" symbolic="YES" id="Nan-cL-XQI"/>
+                    <constraint firstItem="pFT-6e-PQc" firstAttribute="bottom" secondItem="vh6-1P-xC3" secondAttribute="bottom" id="TNV-gV-NAh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Obq-vH-jIS" secondAttribute="trailing" id="Xbj-3y-FHF"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="Obq-vH-jIS" secondAttribute="leading" id="a79-Cb-vEJ"/>
+                    <constraint firstItem="2yL-68-Col" firstAttribute="leading" secondItem="Obq-vH-jIS" secondAttribute="leading" id="arE-r7-uRb"/>
+                    <constraint firstItem="vh6-1P-xC3" firstAttribute="top" secondItem="Obq-vH-jIS" secondAttribute="bottom" constant="16" id="c8A-OK-jSd"/>
+                    <constraint firstItem="vh6-1P-xC3" firstAttribute="leading" secondItem="pFT-6e-PQc" secondAttribute="trailing" constant="24" id="cyX-d3-vSI"/>
+                    <constraint firstItem="pFT-6e-PQc" firstAttribute="height" secondItem="vh6-1P-xC3" secondAttribute="height" id="kqe-mg-oey"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="clearButton" destination="pFT-6e-PQc" id="ttp-Jl-5Qa"/>
+                <outlet property="lockButton" destination="vh6-1P-xC3" id="76v-1U-hIQ"/>
+                <outlet property="signBG" destination="XtI-1i-WLj" id="qCO-vt-kkZ"/>
+                <outlet property="signatureContainerView" destination="Obq-vH-jIS" id="KGA-Hi-uRb"/>
+                <outlet property="signatureHeightConstranit" destination="yeB-Br-Har" id="NcE-mT-qzj"/>
+                <outlet property="signatureView" destination="Oip-pf-oQq" id="fwd-JJ-Y4A"/>
+                <outlet property="titleLabel" destination="2yL-68-Col" id="3HG-Q0-vCi"/>
+            </connections>
+            <point key="canvasLocation" x="67" y="0.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btn_focused" width="91" height="38"/>
+        <image name="btn_outline" width="11" height="9"/>
+        <image name="btn_primary" width="91" height="38"/>
+        <image name="sign_bg" width="770" height="240"/>
+    </resources>
+</document>
