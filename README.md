@@ -6,32 +6,35 @@ iSwiftForm is a lightweight framework to build iOS Forms. It's written in Swift,
   * iOS 8.0+, iPhone and iPad devices
 
 ## Contents
-* [Setup]
-  + [Use Podfile]
-  + [Copy source files to your project directly]
-* [Run the Examples App]
-* [Example usages]
-  + [Basic usage]
-  + [Button to open a QR Scanner]
-* [Full APIs]
-  + [Global configurations]
-  + [TextInput]
-  + [Text]
-  + [Select]
-  + [Date Picker]
-  + [Button]
-  + [Radio Button]
-  + [Big Button]
-  + [Signature]
-* [Extend the framework]
-  + [Add a new form element type]
-* [Contribute]
+
+* [Setup](#setup)
+  + [Use Podfile](#use-podfile)
+  + [Copy source files to your project directly](#copy-source-files-to-your-project-directly)
+* [Run the Examples App](#run-the-examples-app)
+* [Example usage](#example-usage)
+  + [Basic usage](#basic-usage)
+  + [Button to open a QR Scanner](#button-to-open-a-qr-scanner)
+* [Full APIs](#full-apis)
+  + [Global configurations](#global-configurations)
+  + [TextInput](#textinput)
+  + [Text](#text)
+  + [Select](#select)
+  + [Date Picker](#date-picker)
+  + [Button](#button)
+  + [Radio Button](#radio-button)
+  + [Big Button](#big-button)
+  + [Signature](#signature)
+* [Extend the framework](#extend-the-framework)
+  + [Add a new form element type](#add-a-new-form-element-type)
+* [Contribute](#contribute)
 
 ## Setup
 ### Use Podfile
+
 [To be updated]
 
 ### Copy source files to your project directly
+
 1. Download the repo.
 
 2. Copy all the source files under **iSwiftForm/iSwiftForm/Sources/** to your project.
@@ -46,6 +49,7 @@ import iSwiftForm
 ```
 
 ## Run the Examples App
+
 You can run the Examples App on your simulator or your devices:
 1. Download the repo.
 2. Open the **iSwiftForm.xcworkspace** file.
