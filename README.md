@@ -1,3 +1,12 @@
+
+<p align="center">
+<img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
+<img src="https://img.shields.io/badge/swift5-compatible-4BC51D.svg?style=flat" alt="Swift 5 compatible" />
+<a href="https://cocoapods.org/pods/iSwiftForm"><img src="https://img.shields.io/cocoapods/v/iSwiftForm.svg" alt="CocoaPods compatible" /></a>
+<a href="https://raw.githubusercontent.com/xmartlabs/Eureka/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
+</p>
+
+
 iSwiftForm is a lightweight framework to build iOS Forms. It's written in Swift, simple to use and easy to customize!
 
 * **Requirement:**
