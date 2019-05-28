@@ -13,16 +13,16 @@ class DataHolder: FormBaseDataHolder {
     var rawData: [String: String] = [:]
     override func fillFormData() {
         var group = FormDataGroup("Basic Info")
-        group += FormData(CellType.Input).config(title: "Name", textSuggestions: ["John Snow", "John Green"]).itemKey("name", self)
-        group += FormData(CellType.Input).config(title: "Phone").itemKey("name", self).inputType(.phone)
-        group += FormData(CellType.SegmentedControl).config(title: "Gender", textSuggestions: ["Male", "Female"]).itemKey("gender", self)
-        group += FormData(CellType.DateTime).config(title: "Birth").itemKey("birth", self).options(["mode": "date"])
-        group += FormData(CellType.Input).config(title: "Email").validator(.email).inputType(.email).itemKey("email", self)
+        group += FormData(CellType.Input).config(title: "Name", textSuggestions: ["John Snow", "John Green"]).itemKey("name", self.rawData).validator(.none)
+        group += FormData(CellType.Input).config(title: "Phone").itemKey("name", self.rawData).inputType(.phone)
+        group += FormData(CellType.SegmentedControl).config(title: "Gender", textSuggestions: ["Male", "Female"]).itemKey("gender", self.rawData)
+        group += FormData(CellType.DateTime).config(title: "Birth").itemKey("birth", self.rawData).options(["mode": "date"])
+        group += FormData(CellType.Input).config(title: "Email").validator(.email).inputType(.email).itemKey("email", self.rawData)
         self.append(group)
 
         group = FormDataGroup("More Info")
-        group += FormData(CellType.ExpandTable).config(title: "Mood", textSuggestions: ["😝", "😭", "☹️"]).itemKey("mood", self)
-        group += FormData(CellType.ExpandTable).config(title: "Favorite Foods", textSuggestions: ["🍔", "🍜", "🌽"]).options(["type": "multiple"]).itemKey("food", self)
+        group += FormData(CellType.ExpandTable).config(title: "Mood", textSuggestions: ["😝", "😭", "☹️"]).itemKey("mood", self.rawData)
+        group += FormData(CellType.ExpandTable).config(title: "Favorite Foods", textSuggestions: ["🍔", "🍜", "🌽"]).options(["type": "multiple"]).itemKey("food", self.rawData)
         self.append(group)
 
         group = FormDataGroup()
@@ -54,14 +54,14 @@ class DataHolder2: FormBaseDataHolder {
     var rawData: [String: String] = [:]
     override func fillFormData() {
         var group = FormDataGroup("ID Number")
-        group += FormData(CellType.ExpandTable).config(title: "Nationality", textSuggestions: countries).itemKey("nationality", self)
-        group += FormData(CellType.Input).config(title: "ID Number").valuePlaceHolder("Your ID Number").inputType(.phone).itemKey("idnumber", self)
+        group += FormData(CellType.ExpandTable).config(title: "Nationality", textSuggestions: countries).itemKey("nationality", self.rawData)
+        group += FormData(CellType.Input).config(title: "ID Number").valuePlaceHolder("Your ID Number").inputType(.phone).itemKey("idnumber", self.rawData)
         group += FormData(CellType.Button).config(title: "Scan a bar code")
         self.append(group)
 
         group = FormDataGroup()
         group += FormData(CellType.Text).config(title: "I have read the Agreement and agree to the terms and conditions.")
-        group += FormData(CellType.Signature).config(title: "Signature").itemKey("signature", self)
+        group += FormData(CellType.Signature).config(title: "Signature").itemKey("signature", self.rawData)
         self.append(group)
 
         group = FormDataGroup()
@@ -92,7 +92,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("OK!");
     }
     override func viewDidAppear(_ animated: Bool) {
         let vc = DataHolder().attach(FormBaseController());

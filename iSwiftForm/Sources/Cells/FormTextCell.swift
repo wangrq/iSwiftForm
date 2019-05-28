@@ -33,7 +33,7 @@ class FormTextCell: FormBaseCell, UITextViewDelegate {
     func updateTextViewColor() {
         if (textView.isEditable == true) {
             if (self.dataOj?.validate() == false) {
-                textView.layer.borderColor = FormConfigs.nokColor.cgColor
+                textView.layer.borderColor = FormConfigs.editBorderNokColor.cgColor
                 textView.layer.borderWidth = 2.0
             } else {
                 textView.layer.borderColor = UIColor.clear.cgColor

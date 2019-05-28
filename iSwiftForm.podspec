@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name = 'iSwiftForm'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.license = 'MIT'
   s.summary = 'A lightweight framework to build iOS Forms.'
   s.homepage = 'https://github.com/wangrq/iSwiftForm'
-  s.authors = { 'Martin Barreto' => 'martin@xmartlabs.com', 'Mathias Claassen' => 'mathias@xmartlabs.com' }
+  s.authors = { 'Renquan Wang' => 'wangrqt196@gmail.com' }
   s.source = { :git => 'https://github.com/wangrq/iSwiftForm.git', :tag => s.version }
   s.ios.deployment_target = '8.0'
   s.ios.frameworks = 'UIKit', 'Foundation'

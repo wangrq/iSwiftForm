@@ -24,7 +24,7 @@ open class FormButtonBigCell: FormBaseCell {
             if (self.dataOj?.options?["color"] == "gray") {
                 self.button.backgroundColor = UIColor.gray
             } else {
-                self.button.backgroundColor = FormConfigs.inProgressGreenColor
+                self.button.backgroundColor = FormConfigs.bigButtonTextColor
             }
         }
     }

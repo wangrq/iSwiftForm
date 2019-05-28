@@ -16,7 +16,7 @@ class FormButtonCell: FormBaseCell {
         if let ops = self.dataOj?.options, let value = ops["style"], value == "delete" {
             self.titleLabel.textColor = UIColor.red
         } else {
-            self.titleLabel.textColor = FormConfigs.primaryColor
+            self.titleLabel.textColor = FormConfigs.buttonTextColor
         }
     }
 

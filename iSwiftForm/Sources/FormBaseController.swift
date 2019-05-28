@@ -160,10 +160,8 @@ open class FormData: Hashable, Equatable {
     static public func ==(lhs: FormData, rhs: FormData) -> Bool {
         return lhs.id == rhs.id
     }
-    open var hashValue: Int {
-        get {
-            return self.id
-        }
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
     }
 
     static var idIndex: Int = 0
@@ -218,10 +216,10 @@ open class FormData: Hashable, Equatable {
         return self
     }
 
-    open func itemKey(_ key: String, _ holder: FormBaseDataHolder? = nil) -> FormData {
+    open func itemKey(_ key: String, _ rawData: [String: String]? = nil) -> FormData {
         self.key = key
-        if (self.value.count == 0 && self.key.count > 0) {
-            self.value = holder?.formData[self.key] ?? ""
+        if (self.key.count > 0 && rawData != nil) {
+            self.value = rawData?[self.key] ?? ""
         }
         return self
     }
@@ -275,7 +273,7 @@ open class FormData: Hashable, Equatable {
         return self
     }
 
-    open func validator(_ validator: Validator) -> FormData {
+    open func validator(_ validator: Validator?) -> FormData {
         self.validator = validator
         return self
     }
@@ -341,16 +339,10 @@ open class CommonDataHolder {
 
 open class FormBaseDataHolder: CommonDataHolder {
     open var data: [FormDataGroup] = [FormDataGroup]()
-    var formData: [String: String] = [:]
-
     var pageIndex: IndexPath?
 
     weak open var page: FormBaseController?
 
-    func formData(_ formData: [String: String]) -> FormBaseDataHolder {
-        self.formData = formData
-        return self
-    }
     override func reloadFormData() {
         self.data = []
         self.fillFormData()
@@ -556,13 +548,7 @@ open class FormBaseController: UIViewController, UITableViewDelegate, UITableVie
 
     open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let formCell = cell as? FormBaseCell {
-            var isOK = false;
-            if let validator = formCell.dataOj?.validator {
-                if (validator.test(value: formCell.dataOj?.value) && formCell is FormTextCell == false) {
-                    isOK = true
-                }
-            }
-            formCell.fillCellWithColor(isOK)
+            formCell.fillCellWithColor(formCell.dataOj?.validate() ?? false)
         }
     }
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

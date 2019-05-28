@@ -24,8 +24,8 @@ class FormDateTimeCell: FormBaseCell {
         self.datePicker.isHidden = true
         let now = Date()
         self.datePicker.maximumDate = now
-        if let ops = self.dataOj?.options, let futhureDaysStr = ops["futhureDays"], let futhureDays = Int(futhureDaysStr) {
-            self.datePicker.maximumDate = Calendar.current.date(byAdding: .day, value: futhureDays, to: now) ?? now
+        if let ops = self.dataOj?.options, let futureDaysStr = ops["futureDays"], let futureDays = Int(futureDaysStr) {
+            self.datePicker.maximumDate = Calendar.current.date(byAdding: .day, value: futureDays, to: now) ?? now
         }
         self.datePicker.addTarget(self, action: #selector(onValueChange(_:)), for: UIControl.Event.valueChanged)
         self.saveButton.setBackgroundImage(UIImage(named: "btn_primary", in: FormConfigs.bundle, compatibleWith: nil), for: UIControl.State.normal)
