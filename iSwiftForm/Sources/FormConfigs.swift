@@ -7,8 +7,6 @@
 
 import UIKit
 
-let libIdentifier = "app.mso.iSwiftForm"
-
 open class FormConfigs {
     static func UIColorFromRGB(hex6: UInt32, alpha: CGFloat = 1) -> UIColor {
         let divisor = CGFloat(255)
@@ -18,7 +16,7 @@ open class FormConfigs {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     static let isIPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
-    static let bundle: Bundle? = libIdentifier == Bundle.main.bundleIdentifier ? nil : Bundle(identifier: libIdentifier)
+    static let bundle: Bundle? = Bundle(for: FormConfigs.self)
 
     // form view controller background color
     public static var tableViewSectionColor: UIColor = UIColorFromRGB(hex6: 0xF0F0F5)

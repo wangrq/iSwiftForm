@@ -10,10 +10,10 @@ iSwiftForm is a lightweight framework to build iOS Forms. It's written in Swift,
 <table>
   <tr>
     <th>
-      <img src="Examples/Media/iPhone.gif"/>
+      <img src="https://github.com/wangrq/iSwiftForm/blob/master/Examples/Media/iPhone.gif"/>
     </th>
     <th>
-      <img src="Examples/Media/iPad.gif"/>
+      <img src="https://github.com/wangrq/iSwiftForm/raw/master/Examples/Media/iPad.gif"/>
     </th>
   </tr>
 </table>

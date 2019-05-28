@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'iSwiftForm'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.license = 'MIT'
   s.summary = 'A lightweight framework to build iOS Forms.'
   s.homepage = 'https://github.com/wangrq/iSwiftForm'
