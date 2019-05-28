@@ -182,6 +182,9 @@ class DataHolder: FormBaseDataHolder, QRScannerCallback {
 ### Global configuration
 
 #### FormConfigs
+
+**FormConfigs** has some static properties for global form configuration.
+
 * **tableViewSectionColor**: UIColor (default value: 0xF0F0F5)
   + form view controller background color
 * **selectedColor**: UIColor (default value: 0x024172)
@@ -229,6 +232,9 @@ class DataHolder: FormBaseDataHolder, QRScannerCallback {
   + override method. should the form data reloaded when base view controller's viewDidAppear() method called
 
 ### FormDataGroup
+
+**FormDataGroup** is a group of form controls, it shows an optional header text above all the form controls.
+
 * **init()**
 * **init(_ name: String)**
   - constructor, create a new form data group (with a header text)
@@ -237,6 +243,8 @@ class DataHolder: FormBaseDataHolder, QRScannerCallback {
   - append a new form data
 
 ### FormData
+
+**FormData** is the basic unit to describe a form control.
 
 * **init(_ type: String)**
 * **init(_ type: CellType)**
@@ -252,7 +260,7 @@ class DataHolder: FormBaseDataHolder, QRScannerCallback {
   - set a key for the form control. the rawData[key] will be used as the **value** if rawData is not nil
 
 * **options(_ options: [String: String])** -> FormData
-  - set some options for the form control
+  - set some options for the form control. Please refer to the bellow CellType for details
 * **enable(_ enable: Bool)** -> FormData
   - is the form control enabled (for Input, Button, etc...)
 * **valuePlaceHolder(_ valuePlaceHolder: String)** -> FormData
@@ -270,60 +278,62 @@ class DataHolder: FormBaseDataHolder, QRScannerCallback {
 * **validate()** -> Bool
   - is the form control pass the validation
 
+When the **options(_ options: [String: String])** is called, these options will be passed to the Form Cell. Each Cell is controlled by different options, here is a list of them:
+
 #### Input (CellType.Input)
 
-* options: **["bold": "true"]
-  - the input field will use bold texts
+* options: **["bold": "true"]**
+  - is the input field use bold texts
 
 #### Text (CellType.Text)
 
-* options: **["type": "edit"]
-  - the form control is editable
+* options: **["type": "edit"]**
+  - is the form control editable
 
 #### Select (CellType.ExpandTable)
 
-* options: **["type": "multiple"]
+* options: **["type": "multiple"]**
   - is the form control support multiple selection
 
-* options: **["allowDeselect": "true"]
+* options: **["allowDeselect": "true"]**
   - is the form control allow deselect items
 
 #### Date Picker (CellType.DateTime)
 
-* options: **["futureDays": "XX"]
+* options: **["futureDays": "XX"]**
   - allow maximum XX days in future to be selected
 
-* options: **["mode": "date | time"]
+* options: **["mode": "date | time"]**
   - set the data picker mode. the default mode is date and time when the 'mode' option isn't present
 
-* options: **["oneDayAfter": "baseDay, format yyyy-MM-dd HH:mm"]
-  - set the available date [baseDay, baseDay + 1 day]
+* options: **["oneDayAfter": "baseDay, format yyyy-MM-dd HH:mm"]**
+  - set the selectable date [baseDay, baseDay + 1 day]
 
 #### Button (CellType.Button)
 
-* options: **["style": "delete"]
-  - show the button with red color instead of the primary color
+* options: **["style": "delete"]**
+  - show a different button style
 
 #### Radio Button (CellType.SegmentedControl)
 
-* options: **["disabledSegement": "index, type is Int"]
+* options: **["disabledSegement": "index, type is Int"]**
   - disable certain radio button
 
 #### Big Button (CellType.ButtonBig)
 
-* options: **["color": "red | gray"]
+* options: **["color": "red | gray"]**
   - show a different button style
 
 #### Signature (CellType.Signature)
 
-* options: **["disableEditIfNotEmpty": "true"]
-  - disable the edit once someone signed it
+* options: **["disableEditIfNotEmpty": "true"]**
+  - disable the edit once it's signed
 
 ## Extend the framework
 
 ### Add a new form control
 
-1. call **CellType.register(_ newType: String)** to register a new type
+1. call **CellType.register(_ newType: String)** to register a new form control type
 2. add FormXXCell.swift and FormXX.xib source file to discribe the view and behaviour
 3. now you can use the **FormData.init(_ type: String)** to create your own form control
 
