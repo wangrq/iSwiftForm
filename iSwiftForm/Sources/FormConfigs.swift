@@ -31,4 +31,5 @@ class FormConfigs {
     static let headerAlignment: NSTextAlignment = NSTextAlignment.center
     static let headerPadding: UIEdgeInsets? = UIEdgeInsets(top: 18, left: 18, bottom: 0, right: 0)
     static let bundle: Bundle? = libIdentifier == Bundle.main.bundleIdentifier ? nil : Bundle(identifier: libIdentifier)
+    static let fillCellWithOKColor: Bool = false
 }

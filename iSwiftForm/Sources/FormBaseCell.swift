@@ -25,7 +25,7 @@ open class FormBaseCell: UITableViewCell {
     var valueChangeDelegate: FormValueChangeDelegate?
     weak var containerTableView: UITableView?
     var selfIndexPath: IndexPath?
-    var showOKColor = -2
+    var fillOKColor: Bool? = nil
 
     open func focus() -> CellRequest {
         return CellRequest.deselect
@@ -54,15 +54,15 @@ open class FormBaseCell: UITableViewCell {
             let imageAttachment =  NSTextAttachment()
             if validator.test(value: self.dataOj?.value) {
                 imageAttachment.image = UIImage(named:"form_ic_check", in: FormConfigs.bundle, compatibleWith: nil)
-                self.fillCellWithColor(showOKColor: 1)
+                self.fillCellWithColor(false)
             } else {
                 imageAttachment.image = UIImage(named:"form_star_mark", in: FormConfigs.bundle, compatibleWith: nil)
-                self.fillCellWithColor(showOKColor: 0)
+                self.fillCellWithColor(false)
             }
             showImageIndicator(imageAttachment: imageAttachment, title: title, titleLabel: titleLabel)
         } else {
             titleLabel.text = title
-            self.fillCellWithColor(showOKColor: 0)
+            self.fillCellWithColor(false)
         }
     }
 
@@ -81,12 +81,12 @@ open class FormBaseCell: UITableViewCell {
         titleLabel.attributedText = completeText;
     }
 
-    func fillCellWithColor(showOKColor: Int) {
+    func fillCellWithColor(_ fillOKColor: Bool) {
         if let indexPath = self.selfIndexPath, let tableView = self.containerTableView {
-            if (self.showOKColor == -2 || self.showOKColor == showOKColor) {
+            if (self.fillOKColor == fillOKColor) {
                 return;
             }
-            self.showOKColor = showOKColor;
+            self.fillOKColor = fillOKColor;
 
             let cornerRadius: CGFloat = FormConfigs.isIPad ? 5 : 0
             self.backgroundColor = .clear
@@ -116,7 +116,7 @@ open class FormBaseCell: UITableViewCell {
             }
 
             layer.path = pathRef
-            layer.fillColor = self.showOKColor == 0 ? UIColor(white: 1, alpha: 0.8).cgColor : FormConfigs.okLightGreenColor.cgColor
+            layer.fillColor = FormConfigs.fillCellWithOKColor ? FormConfigs.okLightGreenColor.cgColor : UIColor(white: 1, alpha: 0.8).cgColor
 
             if addLine == true {
                 let lineLayer = CALayer()
@@ -133,7 +133,7 @@ open class FormBaseCell: UITableViewCell {
             self.backgroundView = testView
 
             let bgColorView = UIView()
-            bgColorView.backgroundColor = self.showOKColor == 0 ? FormConfigs.defaultSelectedColor : FormConfigs.okLightGreenColorFocused
+            bgColorView.backgroundColor = FormConfigs.fillCellWithOKColor ? FormConfigs.okLightGreenColorFocused : FormConfigs.defaultSelectedColor
             self.selectedBackgroundView = bgColorView
         }
     }

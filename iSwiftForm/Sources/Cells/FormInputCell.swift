@@ -92,6 +92,7 @@ class FormInputCell: FormBaseCell {
             case .email:
                 self.inputField.keyboardType = .emailAddress
                 self.inputField.autocapitalizationType = .none
+                self.inputField.autocorrectionType = .no
             case .none:
                 self.inputField.keyboardType = .alphabet
                 self.inputField.autocapitalizationType = .none

@@ -2,8 +2,21 @@ iSwiftForm is a lightweight framework to build iOS Forms. It's written in Swift,
 
 * **Requirement:**
   * XCode 10.2.1+, Swift 5.0+
-* **Support:**
-  * iOS 8.0+, iPhone and iPad devices
+* **Features:**
+  * Support iOS 8.0+, iPhone and iPad devices
+  * Auto-complete input field
+  * Support bluetooth keyboard
+
+<table>
+  <tr>
+    <th>
+      <img src="Example/Media/iPhone.gif"/>
+    </th>
+    <th>
+      <img src="Example/Media/iPad.gif"/>
+    </th>
+  </tr>
+</table>
 
 ## Contents
 
@@ -15,7 +28,7 @@ iSwiftForm is a lightweight framework to build iOS Forms. It's written in Swift,
   + [Basic usage](#basic-usage)
   + [Button to open a QR Scanner](#button-to-open-a-qr-scanner)
 * [Full APIs](#full-apis)
-  + [Global configurations](#global-configurations)
+  + [Global configuration](#global-configuration)
   + [TextInput](#textinput)
   + [Text](#text)
   + [Select](#select)
@@ -56,7 +69,7 @@ You can run the Examples App on your simulator or your devices:
 3. Click the target **iSwiftForm** and **Examples**, config your development team in the **General - Signing** section.
 4. Click the scheme **Examples** on the top-left corner, and hit the RUN triangle button.
 
-## Example usages
+## Example usage
 ### Basic usage
 
 [To be updated]
@@ -109,6 +122,6 @@ You can run the Examples App on your simulator or your devices:
 
 [To be updated]
 
-## 6. Contribute
+## Contribute
 
-Any ideas please contact me via [Email](malto:wangrqt196@gmail.com)
+PRs are welcomed. Any ideas please contact me via [Email](malto:wangrqt196@gmail.com)

@@ -139,6 +139,7 @@ open class FormData: Hashable, Equatable {
     let type: String
     var title: String = ""
     var value: String = ""
+    open var key: String = ""
     var cellHeight: CGFloat = 44
     var enable: Bool = true
     var tag: Any? = nil
@@ -191,23 +192,37 @@ open class FormData: Hashable, Equatable {
         return self
     }
 
-    open func config(title: String, value: String) -> FormData {
-        self.value = value
+    open func config(title: String, value: String? = nil) -> FormData {
         self.title = title
+        if let v = value {
+            self.value = v
+        }
         return self
     }
 
-    open func config(title: String, value: String, textSuggestionSource: TextSuggestionSource) -> FormData {
+    open func config(title: String, textSuggestionSource: TextSuggestionSource, value: String? = nil) -> FormData {
         self.title = title
-        self.value = value
+        if let v = value {
+            self.value = v
+        }
         self.textSuggestionSource = textSuggestionSource
         return self
     }
 
-    open func config(title: String, value: String, textSuggestions: [String]) -> FormData {
+    open func config(title: String, textSuggestions: [String], value: String? = nil) -> FormData {
         self.title = title
-        self.value = value
+        if let v = value {
+            self.value = v
+        }
         self.textSuggestions = textSuggestions
+        return self
+    }
+
+    open func itemKey(_ key: String, _ holder: FormBaseDataHolder? = nil) -> FormData {
+        self.key = key
+        if (self.value.count == 0 && self.key.count > 0) {
+            self.value = holder?.formData[self.key] ?? ""
+        }
         return self
     }
 
@@ -325,12 +340,12 @@ open class CommonDataHolder {
 }
 
 open class FormBaseDataHolder: CommonDataHolder {
-    var data: [FormDataGroup] = [FormDataGroup]()
+    open var data: [FormDataGroup] = [FormDataGroup]()
     var formData: [String: String] = [:]
 
     var pageIndex: IndexPath?
 
-    weak public var page: FormBaseController?
+    weak open var page: FormBaseController?
 
     func formData(_ formData: [String: String]) -> FormBaseDataHolder {
         self.formData = formData
@@ -541,14 +556,13 @@ open class FormBaseController: UIViewController, UITableViewDelegate, UITableVie
 
     open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let formCell = cell as? FormBaseCell {
-            formCell.showOKColor = -1;
-            var isOK = 0;
+            var isOK = false;
             if let validator = formCell.dataOj?.validator {
                 if (validator.test(value: formCell.dataOj?.value) && formCell is FormTextCell == false) {
-                    isOK = 1
+                    isOK = true
                 }
             }
-            formCell.fillCellWithColor(showOKColor: isOK)
+            formCell.fillCellWithColor(isOK)
         }
     }
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
